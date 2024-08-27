@@ -18,7 +18,10 @@ jobs:
 
       - name: Set rights
         run: chmod +x ./deploy.sh
-    
+
+      - name: Get dir contents
+        run: ls -la
+        
       - name: Deploy to server
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
