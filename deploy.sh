@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mkdir -p ~/.ssh
+mkdir -p ~/.ssh/ && touch ~/.ssh/known_hosts
 echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
 chmod 600 ~/.ssh/id_rsa
 ssh-keyscan -H $REMOTE_HOST >> ~/.ssh/known_hosts
