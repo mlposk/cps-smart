@@ -26,3 +26,4 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.REMOTE_PORT }}
           script: ./deploy.sh
+          envs: WORKDIR
