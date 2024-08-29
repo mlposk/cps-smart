@@ -16,14 +16,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up SSH key
+      - name: Run remote deploy script
         uses: appleboy/ssh-action@v1.0.3
-        env:
-          WORKDIR: ${{ secrets.WORKDIR }};
         with:
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.REMOTE_PORT }}
-          script: ./deploy.sh
-          envs: WORKDIR
+          script: cd ${{ secrets.WORKDIR }} && ./deploy.sh
